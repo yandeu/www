@@ -1,3 +1,5 @@
+// Drücke ctrl-e zum testen.
+
 // Aufgabe 1: Erhöhe das Alter um 2 Jahre.
 let age = 22
 expect(age).toBe(24)
