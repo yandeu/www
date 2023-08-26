@@ -1,0 +1,9 @@
+body {
+    background-color: var(--theme);
+    color: var(--primary-color);
+  }
+  
+  .is-secondary {
+    color: var(--secondary-color);
+  }
+  

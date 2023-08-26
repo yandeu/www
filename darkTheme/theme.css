@@ -1,0 +1,26 @@
+:root {
+    --theme: rgb(183, 183, 183);
+    --primary-color: black;
+    --secondary-color: blue;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+      --theme: rgb(18, 18, 18);
+      --primary-color: rgb(219, 219, 219);
+      --secondary-color: rgb(131, 131, 238);
+    }
+  }
+  
+  /* exactly the same content as the block above */
+  :root[data-theme='dark'] {
+    --theme: rgb(18, 18, 18);
+    --primary-color: rgb(219, 219, 219);
+    --secondary-color: rgb(131, 131, 238);
+  }
+  
+  body {
+    transition-property: background-color, color;
+    transition-duration: 500ms;
+  }
+  
