@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="theme.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      let index = 0
+      const themes = ['light', 'dark', 'contrast']
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+      if (prefersDark) index = 1
+      index = parseInt(localStorage.getItem('theme') || index)
+
+      const adjustTheme = () => {
+        localStorage.setItem('theme', index % 3)
+
+        const setDataTheme = theme => {
+          const html = document.querySelector('html')
+          html.setAttribute('data-theme', theme)
+        }
+
+        setDataTheme(themes[index % 3])
+      }
+
+      adjustTheme()
+
+      window.addEventListener('DOMContentLoaded', () => {
+        const toggleTheme = document.getElementById('toggle-theme')
+        toggleTheme.addEventListener('click', () => {
+          index++
+          adjustTheme()
+        })
+      })
+    </script>
+  </head>
+
+  <body>
+    <button id="toggle-theme">toggle</button>
+    <h1>Title</h1>
+    <p>paragraph with <a href="#">link</a>.</p>
+    <p>another paragraph with <code>a code block</code>.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>CRUD</th>
+          <th>SQL</th>
+          <th>HTTP</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Create</td>
+          <td>INSERT INTO</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Read</td>
+          <td>SELECT</td>
+          <td>GET</td>
+        </tr>
+        <tr>
+          <td>Update</td>
+          <td>UPDATE</td>
+          <td>PATCH</td>
+        </tr>
+        <tr>
+          <td>Delete</td>
+          <td>DELETE FROM</td>
+          <td>DELETE</td>
+        </tr>
+      </tbody>
+    </table>
+    <ul class="chapters-list">
+      <li>
+        asdf
+        <ol>
+          <li><a href="">sadf</a></li>
+          <li><a href="">sadf</a></li>
+          <li><a href="">sadf</a></li>
+        </ol>
+      </li>
+      <li>
+        asdf
+        <ol>
+          <li><a href="">sadf</a></li>
+          <li><a href="">sadf</a></li>
+          <li><a href="">sadf</a></li>
+        </ol>
+      </li>
+      <li>
+        asdf
+        <ol>
+          <li><a href="">sadf</a></li>
+          <li><a href="">sadf</a></li>
+          <li><a href="">sadf</a></li>
+        </ol>
+      </li>
+      <li>asdf</li>
+      <li>asdf</li>
+    </ul>
+  </body>
+</html>
